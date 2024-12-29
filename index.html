@@ -109,7 +109,7 @@
 
         function addName(name) {
             names.push(name);
-            input.value = '';
+           
             updateNamesList();
             drawWheel();
         }
@@ -120,6 +120,7 @@
             if (name) {
                addName(name);
             }
+            input.value = '';
         }
 
         function updateNamesList() {
