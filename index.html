@@ -66,7 +66,7 @@
         </div>
         <div class="controls">
             <input type="text" id="inputName" placeholder="Adicionar nome">
-            <button onclick="addName()">Adicionar</button>
+            <button onclick="addNameInput()">Adicionar</button>
             <button onclick="spinWheel()">Girar Roleta</button>
         </div>
         <ul id="namesList"></ul>
@@ -107,14 +107,18 @@
             });
         }
 
-        function addName() {
+        function addName(name) {
+            names.push(name);
+            input.value = '';
+            updateNamesList();
+            drawWheel();
+        }
+
+        function addNameInput() {
             const input = document.getElementById('inputName');
             const name = input.value.trim();
             if (name) {
-                names.push(name);
-                input.value = '';
-                updateNamesList();
-                drawWheel();
+               addName(name);
             }
         }
 
@@ -156,6 +160,8 @@
 
             animateSpin();
         }
+
+        ["leo", "lucas", "joao", "maria", "jose", "pedro"].forEach(addName);
     </script>
 </body>
 </html>
